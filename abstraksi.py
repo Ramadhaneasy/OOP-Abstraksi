@@ -1,23 +1,36 @@
 from abc import ABC, abstractmethod
 
 # Membuat kelas abstrak
-class Kendaraan(ABC):
+class Laptop(ABC):
     @abstractmethod
-    def bergerak(self):
-        pass  # Metode abstrak (harus diimplementasikan oleh subclass)
+    def spesifikasi(self):
+        pass  # Metode abstrak pertama (harus diimplementasikan oleh subclass)
+
+    @abstractmethod
+    def harga(self):
+        pass  # Metode abstrak kedua (harus diimplementasikan oleh subclass)
 
 # Kelas Turunan
-class GamingLaptop(Kendaraan):
-    def bergerak(self):
-        return "Gaming laptop digunakan untuk bermain game berat."
+class GamingLaptop(Laptop):
+    def spesifikasi(self):
+        return "Gaming laptop memiliki spesifikasi tinggi untuk menjalankan game berat."
 
-class Ultrabook(Kendaraan):
-    def bergerak(self):
-        return "Ultrabook digunakan untuk pekerjaan ringan dan portabilitas tinggi."
+    def harga(self):
+        return "Harga gaming laptop berkisar antara 15 juta hingga 50 juta rupiah."
+
+class Ultrabook(Laptop):
+    def spesifikasi(self):
+        return "Ultrabook dirancang untuk portabilitas dan efisiensi daya."
+
+    def harga(self):
+        return "Harga ultrabook berkisar antara 10 juta hingga 30 juta rupiah."
 
 # Penggunaan
 gaming_laptop = GamingLaptop()
 ultrabook = Ultrabook()
 
-print(gaming_laptop.bergerak())  # Output: Gaming laptop digunakan untuk bermain game berat.
-print(ultrabook.bergerak())  # Output: Ultrabook digunakan untuk pekerjaan ringan dan portabilitas tinggi.
+print(gaming_laptop.spesifikasi())  # Output: Gaming laptop memiliki spesifikasi tinggi untuk menjalankan game berat.
+print(gaming_laptop.harga())       # Output: Harga gaming laptop berkisar antara 15 juta hingga 50 juta rupiah.
+
+print(ultrabook.spesifikasi())     # Output: Ultrabook dirancang untuk portabilitas dan efisiensi daya.
+print(ultrabook.harga())           # Output: Harga ultrabook berkisar antara 10 juta hingga 30 juta rupiah.
